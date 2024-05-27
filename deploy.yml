@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: war-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: war-app
+  template:
+    metadata:
+      labels:
+        app: war-app
+    spec:
+      containers:
+      - name: war
+        image: likithardahiya/web
+        ports:
+        - containerPort: 8080
